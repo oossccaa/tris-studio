@@ -152,6 +152,7 @@ export const projects: Project[] = [
   },
   {
     slug: "ticket-checker",
+    image: "/work/ticket-checker.png",
     title: "售票查詢通知",
     category: "自動化工具",
     thumbLabel: "票券監測工具",
@@ -159,8 +160,8 @@ export const projects: Project[] = [
       headline: "售票查詢通知系統",
       meta: "後端開發 · 自動化",
       tags: ["角色：獨立開發", "Go · 無頭瀏覽器", "Email 通知"],
-      browserUrl: "🔒 排程服務",
-      browserCaption: "通知信範例",
+      browserUrl: "ticket-checker — 執行紀錄",
+      browserCaption: "終端機執行紀錄（示意）",
       overview:
         "因法規限制無法代購票券，改以自動化監測切入：以 Go 搭配無頭瀏覽器（headless Chrome）定時檢查售票頁面，一偵測到釋票立即寄出 Email 通知。",
       challenge:
