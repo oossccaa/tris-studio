@@ -15,6 +15,7 @@ export type ProjectDetail = {
   browserUrl: string;
   browserCaption: string;
   gallery?: string[]; // 多張截圖 → 細節頁輪播；未提供時用 project.image 單圖
+  mobileShots?: boolean; // 直式手機截圖 → 細節頁置中顯示完整畫面
   liveUrl?: string; // 有公開網址的作品，細節頁會顯示「造訪網站」
   overview: string;
   challenge: string;
@@ -132,7 +133,7 @@ export const projects: Project[] = [
   },
   {
     slug: "red-packet-game",
-    image: "/work/red-packet-game.png",
+    image: "/work/red-packet-thumb.png",
     title: "紅包小遊戲",
     category: "互動小遊戲",
     thumbLabel: "情侶互動遊戲",
@@ -148,6 +149,7 @@ export const projects: Project[] = [
         "/work/red-packet-3.png",
         "/work/red-packet-4.png",
       ],
+      mobileShots: true,
       overview:
         "一個為情侶打造的互動紅包小遊戲——把驚喜包進遊戲裡，完成挑戰才能拆開紅包，讓送禮多一層儀式感。",
       challenge:

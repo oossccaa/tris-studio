@@ -66,12 +66,24 @@ export default function ProjectDetail({
         </div>
         {total > 0 ? (
           <div className="relative">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={slides[slide]}
-              alt={`${detail.browserCaption} ${slide + 1}/${total}`}
-              className="block max-h-[560px] w-full object-cover object-top"
-            />
+            {detail.mobileShots ? (
+              // 直式手機截圖：置中完整顯示
+              <div className="flex justify-center bg-[#EFE8DA] py-8">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={slides[slide]}
+                  alt={`${detail.browserCaption} ${slide + 1}/${total}`}
+                  className="h-[520px] w-auto rounded-[16px] shadow-lg"
+                />
+              </div>
+            ) : (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={slides[slide]}
+                alt={`${detail.browserCaption} ${slide + 1}/${total}`}
+                className="block max-h-[560px] w-full object-cover object-top"
+              />
+            )}
             {total > 1 && (
               <>
                 <button
