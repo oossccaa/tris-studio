@@ -141,7 +141,13 @@ export const projects: Project[] = [
       meta: "設計 · 開發",
       tags: ["角色：設計與開發", "React · Vite", "輕量客製"],
       browserUrl: "🔒 私人訂製",
-      browserCaption: "遊戲畫面截圖",
+      browserCaption: "遊戲畫面截圖（示範內容）",
+      gallery: [
+        "/work/red-packet-game.png",
+        "/work/red-packet-2.png",
+        "/work/red-packet-3.png",
+        "/work/red-packet-4.png",
+      ],
       overview:
         "一個為情侶打造的互動紅包小遊戲——把驚喜包進遊戲裡，完成挑戰才能拆開紅包，讓送禮多一層儀式感。",
       challenge:
