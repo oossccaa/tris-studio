@@ -21,6 +21,12 @@ const contacts = [
     href: "https://www.linkedin.com/in/yu-hui-xiao-b52627188/",
     size: "text-[14px]",
   },
+  {
+    icon: "LINE",
+    label: "LINE ID：oossccaa",
+    href: "https://line.me/ti/p/~oossccaa",
+    size: "text-[9px] font-bold",
+  },
 ];
 
 const inputClass =
@@ -191,6 +197,17 @@ export default function Contact() {
                 {c.label}
               </a>
             ))}
+          </div>
+
+          {/* LINE QR — 桌機使用者直接掃碼加好友 */}
+          <div className="mt-9 inline-flex flex-col items-center gap-3 rounded-[10px] border border-border bg-surface p-5">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/line-qr.png"
+              alt="LINE QR code — 加入好友 oossccaa"
+              className="h-[150px] w-[150px]"
+            />
+            <span className="text-[13.5px] text-ink-4">掃碼加 LINE 好友</span>
           </div>
         </div>
       </div>
