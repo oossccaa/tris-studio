@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Accent — swap for #8A8F6B, #6E8BA0, or #A08466 to re-theme */
+  --accent: #7b9070;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg text-ink font-sans antialiased;
+  }
+  ::selection {
+    background: var(--accent);
+    color: #fff;
+  }
+}
+
+/* Placeholder thumbnail texture used across cards / hero mocks */
+.dc-hatch {
+  background: repeating-linear-gradient(
+    45deg,
+    #e7e0d1,
+    #e7e0d1 10px,
+    #ece6da 10px,
+    #ece6da 20px
+  );
+}
+.dc-hatch-lg {
+  background: repeating-linear-gradient(
+    45deg,
+    #e7e0d1,
+    #e7e0d1 12px,
+    #ece6da 12px,
+    #ece6da 24px
+  );
+}
+.dc-hatch-portrait {
+  background: repeating-linear-gradient(
+    45deg,
+    #e9e2d3,
+    #e9e2d3 11px,
+    #efe9dd 11px,
+    #efe9dd 22px
+  );
+}
