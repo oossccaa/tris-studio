@@ -28,3 +28,5 @@ yarn-error.log*
 
 # design references (local only)
 /Homepage_Hero_Designs/
+.vercel
+.env*
