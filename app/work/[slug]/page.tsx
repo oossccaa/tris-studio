@@ -30,10 +30,19 @@ export default function ProjectPage({
   const project = getProject(params.slug);
   if (!project || !project.detail) notFound();
 
+  const num = String(
+    projects.findIndex((p) => p.slug === project.slug) + 1,
+  ).padStart(2, "0");
+
   return (
     <>
       <Nav />
-      <ProjectDetail detail={project.detail} image={project.image} />
+      <ProjectDetail
+        detail={project.detail}
+        title={project.title}
+        num={num}
+        image={project.image}
+      />
       <Footer />
     </>
   );

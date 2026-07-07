@@ -1,14 +1,17 @@
 const skillGroups = [
   {
-    label: "前端",
+    label: "FRONTEND / 前端",
+    pct: "95%",
     skills: ["Vue 3", "Nuxt", "Vite", "React", "Next.js", "TypeScript"],
   },
   {
-    label: "後端",
+    label: "BACKEND / 後端",
+    pct: "90%",
     skills: ["NestJS", "Node.js", "PostgreSQL", "Go", "Docker", "REST APIs"],
   },
   {
-    label: "專長領域",
+    label: "SPECIALTIES / 專長領域",
+    pct: "85%",
     skills: [
       "客戶需求分析",
       "企業流程電子化",
@@ -20,81 +23,64 @@ const skillGroups = [
   },
 ];
 
-const proficiency = [
-  { name: "Vue · Nuxt", value: 95 },
-  { name: "NestJS · Node.js", value: 90 },
-  { name: "React · Next.js", value: 75 },
-  { name: "PostgreSQL · Docker", value: 80 },
-];
-
-function Pill({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="rounded-md border border-border-pill px-4 py-[9px] text-[15px]">
-      {children}
-    </span>
-  );
-}
-
 export default function About() {
   return (
-    <section
-      id="about"
-      className="mx-auto max-w-container scroll-mt-[90px] px-6 pb-5 pt-24 sm:px-12 sm:pt-[100px]"
-    >
-      <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-        <div>
-          <h2 className="m-0 font-display text-[40px] font-medium tracking-[-0.01em] sm:text-[60px]">
-            嗨，我是 Tris。
-          </h2>
-          <p className="m-0 mt-5 text-[20px] text-ink-2 sm:text-[22px]">
-            Tris Studio 主理人 · 資深全端工程師。
-          </p>
-          <p className="m-0 mt-[26px] max-w-[46ch] text-[18px] leading-[1.75] text-ink-3">
-            八年前端工程資歷，三年全端獨立接案。我擅長溝通、快速抓到客戶真正的需求，習慣大膽假設、勇敢前進——從企業管理系統、互動網頁到自動化工具與遊戲，都做得樂在其中。工作之外喜歡打排球和健身；答應的事，就會負責到底。
-          </p>
-          <div className="mt-[34px] h-[2px] w-[180px] bg-accent" />
-        </div>
-        <div className="dc-hatch-portrait flex aspect-square items-center justify-center rounded-[10px] border border-[#E0D8C8]">
-          <span className="font-mono text-[13px] tracking-[0.04em] text-muted">
-            個人照 / portrait
+    <section id="about" className="scroll-mt-20 px-6 pt-[100px] sm:px-8">
+      <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-[60px]">
+        <div className="lg:sticky lg:top-[100px]">
+          <span className="font-mono text-[13px] tracking-[0.06em] text-accent">
+            {"// 關於我"}
           </span>
-        </div>
-      </div>
-
-      <div className="mt-[78px]">
-        <h3 className="m-0 font-display text-[34px] font-medium">技能與技術棧</h3>
-        <div className="mb-10 mt-[14px] h-[2px] w-[130px] bg-accent" />
-
-        <div className="grid grid-cols-1 gap-11 md:grid-cols-3">
-          {skillGroups.map((g) => (
-            <div key={g.label}>
-              <p className="m-0 mb-[18px] text-[13.5px] font-bold tracking-[0.14em] text-accent">
-                {g.label}
-              </p>
-              <div className="flex flex-wrap gap-3">
-                {g.skills.map((s) => (
-                  <Pill key={s}>{s}</Pill>
-                ))}
-              </div>
-            </div>
-          ))}
+          <h2 className="m-0 mt-5 font-display text-[clamp(38px,6vw,80px)] font-bold uppercase leading-[0.98] tracking-[-0.03em]">
+            嗨，
+            <br />
+            我是 Tris
+          </h2>
+          <div className="mt-8 aspect-[4/3] overflow-hidden rounded-lg border border-border-strong">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/portrait.jpg"
+              alt="Tris 個人照"
+              className="h-full w-full object-cover object-[center_22%]"
+            />
+          </div>
         </div>
 
-        <div className="mt-[52px] grid grid-cols-1 gap-x-14 gap-y-8 sm:grid-cols-2">
-          {proficiency.map((p) => (
-            <div key={p.name}>
-              <div className="mb-3 flex items-baseline justify-between">
-                <span className="font-display text-[21px]">{p.name}</span>
-                <span className="text-[15px] text-ink-3">{p.value}%</span>
+        <div>
+          <p className="m-0 text-[21px] leading-[1.7] text-ink-2">
+            Tris Studio 主理人・資深全端工程師。八年前端工程資歷，三年全端獨立接案——
+            從企業管理系統、互動網頁到自動化工具與遊戲，都做得樂在其中。
+          </p>
+          <p className="m-0 mt-[22px] text-[17px] leading-[1.8] text-ink-4">
+            我擅長溝通、快速抓到客戶真正的需求，習慣大膽假設、勇敢前進。
+            工作之外喜歡打排球和健身；答應的事，就會負責到底。
+          </p>
+
+          <div className="mt-12 flex flex-col">
+            {skillGroups.map((g) => (
+              <div key={g.label} className="border-t border-border py-[22px]">
+                <div className="mb-[14px] flex items-baseline justify-between">
+                  <span className="font-mono text-[13px] tracking-[0.06em] text-accent">
+                    {g.label}
+                  </span>
+                  <span className="font-mono text-[12px] text-muted">
+                    {g.pct}
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-[9px]">
+                  {g.skills.map((s) => (
+                    <span
+                      key={s}
+                      className="rounded-full border border-border-pill px-4 py-2 text-[14.5px] text-ink-2"
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className="h-2 overflow-hidden rounded-full bg-track">
-                <div
-                  className="h-full rounded-full bg-accent"
-                  style={{ width: `${p.value}%` }}
-                />
-              </div>
-            </div>
-          ))}
+            ))}
+            <div className="border-t border-border" />
+          </div>
         </div>
       </div>
     </section>

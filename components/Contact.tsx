@@ -3,34 +3,20 @@
 import { useState } from "react";
 
 const contacts = [
+  { label: "a0970699639@gmail.com", href: "mailto:a0970699639@gmail.com" },
+  { label: "GitHub / @oossccaa", href: "https://github.com/oossccaa" },
   {
-    icon: "✉",
-    label: "a0970699639@gmail.com",
-    href: "mailto:a0970699639@gmail.com",
-    size: "text-[17px]",
-  },
-  {
-    icon: "GH",
-    label: "github.com/oossccaa",
-    href: "https://github.com/oossccaa",
-    size: "text-[15px]",
-  },
-  {
-    icon: "in",
-    label: "linkedin.com/in/yu-hui-xiao",
+    label: "LinkedIn / in/yu-hui-xiao",
     href: "https://www.linkedin.com/in/yu-hui-xiao-b52627188/",
-    size: "text-[14px]",
   },
-  {
-    icon: "LINE",
-    label: "LINE ID：oossccaa",
-    href: "https://line.me/ti/p/~oossccaa",
-    size: "text-[9px] font-bold",
-  },
+  { label: "LINE / oossccaa", href: "https://line.me/ti/p/~oossccaa" },
 ];
 
 const inputClass =
-  "w-full rounded-[7px] border border-border-input bg-input px-[18px] py-[15px] text-[16px] text-ink outline-none focus:border-accent";
+  "w-full rounded-lg border border-border-pill bg-input px-[18px] py-[15px] text-[16px] text-ink outline-none transition-colors focus:border-accent";
+
+const labelClass =
+  "mb-[9px] block font-mono text-[12px] tracking-[0.04em] text-ink-4";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -82,132 +68,130 @@ export default function Contact() {
   }
 
   return (
-    <section
-      id="contact"
-      className="mx-auto max-w-container scroll-mt-[90px] px-6 pb-10 pt-24 sm:px-12 sm:pt-[104px]"
-    >
-      <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[1.25fr_0.75fr] lg:gap-[72px]">
-        <div>
-          <h2 className="m-0 font-display text-[44px] font-medium tracking-[-0.01em] sm:text-[64px]">
-            一起合作吧。
-          </h2>
-          <p className="m-0 mt-[22px] text-[18px] leading-[1.6] text-ink-3">
-            目前開放接案，歡迎網頁設計與開發的合作邀約。
-            <br />
-            留言後我會在 24 小時內回覆。
-          </p>
-          <div className="my-8 mb-10 h-px w-[240px] bg-accent" />
+    <section id="contact" className="scroll-mt-20 px-6 pt-[110px] sm:px-8">
+      <div className="rounded-2xl border border-border-strong bg-gradient-to-b from-surface to-bg p-7 sm:p-14">
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+          <div>
+            <span className="font-mono text-[13px] tracking-[0.06em] text-accent">
+              {"// 一起合作"}
+            </span>
+            <h2 className="m-0 mt-[18px] font-display text-[clamp(40px,7vw,96px)] font-bold uppercase leading-[0.95] tracking-[-0.03em]">
+              來聊聊
+              <br />
+              你的專案
+            </h2>
 
-          {sent ? (
-            <div className="rounded-lg border border-accent bg-[#EEF1E9] px-[30px] py-7">
-              <p className="m-0 mb-2 font-display text-[24px]">
-                訊息已送出，謝謝你！
-              </p>
-              <p className="m-0 text-[15.5px] text-ink-3">
-                我會盡快回覆，通常在 24 小時內。
-              </p>
-            </div>
-          ) : (
-            <form
-              onSubmit={onSubmit}
-              className="flex max-w-[640px] flex-col gap-[26px]"
-            >
-              {/* Honeypot — 螢幕外的隱藏欄位；真人看不到也不會填，機器人會 → 判為垃圾訊息 */}
-              <input
-                type="text"
-                name="botcheck"
-                value={botcheck}
-                onChange={(e) => setBotcheck(e.target.value)}
-                tabIndex={-1}
-                autoComplete="off"
-                aria-hidden="true"
-                className="absolute left-[-9999px] h-0 w-0 opacity-0"
-              />
-              <label className="block">
-                <span className="mb-[10px] block text-[15px] text-ink-2">
-                  姓名
-                </span>
-                <input
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="你的名字"
-                  className={inputClass}
-                  required
-                />
-              </label>
-              <label className="block">
-                <span className="mb-[10px] block text-[15px] text-ink-2">
-                  Email
-                </span>
-                <input
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  type="email"
-                  placeholder="your@email.com"
-                  className={inputClass}
-                  required
-                />
-              </label>
-              <label className="block">
-                <span className="mb-[10px] block text-[15px] text-ink-2">
-                  訊息
-                </span>
-                <textarea
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  rows={5}
-                  placeholder="告訴我你的專案…"
-                  className={`${inputClass} resize-y leading-[1.6]`}
-                  required
-                />
-              </label>
-              {error && (
-                <p className="m-0 text-[15px] text-[#B4574A]" role="alert">
-                  {error}
+            {sent ? (
+              <div className="mt-10 rounded-[10px] border border-accent bg-accent/[0.06] p-[30px]">
+                <p className="m-0 mb-[10px] font-mono text-[15px] text-accent">
+                  &gt; MESSAGE_SENT ✓
                 </p>
-              )}
-              <button
-                type="submit"
-                disabled={sending}
-                className="inline-flex items-center gap-[10px] self-start rounded-[7px] bg-accent px-[34px] py-4 text-[17px] tracking-[0.02em] text-white transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-60"
+                <p className="m-0 text-[17px] text-ink-2">
+                  收到了，謝謝你！我會在 24 小時內回覆。
+                </p>
+              </div>
+            ) : (
+              <form
+                onSubmit={onSubmit}
+                className="mt-10 flex max-w-[620px] flex-col gap-[22px]"
               >
-                {sending ? "送出中…" : "送出訊息"}{" "}
-                <span className="font-display">→</span>
-              </button>
-            </form>
-          )}
-        </div>
-
-        <div className="pt-2">
-          <p className="m-0 mb-[26px] text-[13.5px] font-bold tracking-[0.14em] text-accent">
-            其他聯絡方式
-          </p>
-          <div className="flex flex-col gap-6">
-            {contacts.map((c) => (
-              <a
-                key={c.label}
-                href={c.href}
-                className="flex items-center gap-4 text-[17px] text-[#2E2D28] no-underline hover:text-accent"
-              >
-                <span
-                  className={`inline-flex h-10 w-10 items-center justify-center rounded-lg border border-accent text-accent ${c.size}`}
+                {/* Honeypot — 螢幕外的隱藏欄位；真人看不到也不會填，機器人會 → 判為垃圾訊息 */}
+                <input
+                  type="text"
+                  name="botcheck"
+                  value={botcheck}
+                  onChange={(e) => setBotcheck(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="absolute left-[-9999px] h-0 w-0 opacity-0"
+                />
+                <label className="block">
+                  <span className={labelClass}>NAME / 姓名</span>
+                  <input
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="你的名字"
+                    className={inputClass}
+                    required
+                  />
+                </label>
+                <label className="block">
+                  <span className={labelClass}>EMAIL</span>
+                  <input
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    type="email"
+                    placeholder="your@email.com"
+                    className={inputClass}
+                    required
+                  />
+                </label>
+                <label className="block">
+                  <span className={labelClass}>MESSAGE / 訊息</span>
+                  <textarea
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    rows={4}
+                    placeholder="告訴我你的專案…"
+                    className={`${inputClass} resize-y leading-[1.6]`}
+                    required
+                  />
+                </label>
+                {error && (
+                  <p className="m-0 font-mono text-[14px] text-[#E0836F]" role="alert">
+                    {error}
+                  </p>
+                )}
+                <button
+                  type="submit"
+                  disabled={sending}
+                  className="inline-flex items-center gap-[10px] self-start rounded-lg bg-accent px-8 py-4 text-[16px] font-bold tracking-[0.02em] text-bg transition-opacity hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  {c.icon}
-                </span>
-                {c.label}
-              </a>
-            ))}
+                  {sending ? "送出中…" : "送出訊息"}{" "}
+                  <span className="font-mono">→</span>
+                </button>
+              </form>
+            )}
           </div>
 
-          {/* LINE QR — 桌機使用者直接掃碼加好友 */}
-          <div className="mt-9 inline-flex flex-col items-center gap-3 rounded-[10px] border border-border bg-surface p-5">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/line-qr.png"
-              alt="LINE QR code — 加入好友 oossccaa"
-              className="h-[150px] w-[150px]"
-            />
-            <span className="text-[13.5px] text-ink-4">掃碼加 LINE 好友</span>
+          <div className="pt-2">
+            <p className="m-0 mb-6 font-mono text-[12px] tracking-[0.06em] text-muted">
+              DIRECT / 其他管道
+            </p>
+            <div className="flex flex-col">
+              {contacts.map((c, i) => (
+                <a
+                  key={c.label}
+                  href={c.href}
+                  className={`flex items-center justify-between border-t border-border py-[18px] text-[16.5px] text-ink-2 no-underline transition-colors hover:text-accent ${
+                    i === contacts.length - 1 ? "border-b" : ""
+                  }`}
+                >
+                  {c.label}
+                  <span className="font-mono text-muted">↗</span>
+                </a>
+              ))}
+            </div>
+
+            {/* LINE QR — 桌機使用者直接掃碼加好友 */}
+            <div className="mt-8 inline-flex flex-col items-center gap-3 rounded-[10px] border border-border-strong bg-surface p-5">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/line-qr.png"
+                alt="LINE QR code — 加入好友 oossccaa"
+                className="h-[150px] w-[150px] rounded-md"
+              />
+              <span className="font-mono text-[12px] text-ink-4">
+                掃碼加 LINE 好友
+              </span>
+            </div>
+
+            <p className="m-0 mt-7 font-mono text-[12px] leading-[1.7] text-muted">
+              STATUS:
+              <br />
+              <span className="text-accent">● 開放接案中</span> — 2026 Q3
+            </p>
           </div>
         </div>
       </div>

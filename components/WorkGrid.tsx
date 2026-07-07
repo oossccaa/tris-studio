@@ -3,55 +3,44 @@ import { projects } from "@/lib/projects";
 
 export default function WorkGrid() {
   return (
-    <section
-      id="work"
-      className="mx-auto max-w-container scroll-mt-[90px] px-6 pb-5 pt-24 sm:px-12"
-    >
-      <h2 className="m-0 font-display text-[40px] font-medium tracking-[-0.01em] sm:text-[56px]">
-        精選作品
-      </h2>
-      <p className="m-0 mt-[18px] max-w-[50ch] text-[18px] text-ink-3">
-        從企業管理系統、互動網頁到自動化工具——都是實際打造、實際被使用的作品。
-      </p>
-      <div className="my-[34px] mb-10 h-px bg-divider" />
+    <section id="work" className="scroll-mt-20 px-6 pt-[90px] sm:px-8">
+      <div className="mb-5 flex items-baseline justify-between">
+        <h2 className="m-0 font-display text-[clamp(34px,6vw,72px)] font-bold uppercase tracking-[-0.02em]">
+          精選作品
+        </h2>
+        <span className="font-mono text-[13px] text-muted">
+          [ {String(projects.length).padStart(2, "0")} 個專案 ]
+        </span>
+      </div>
 
-      <div className="grid grid-cols-1 gap-[30px] md:grid-cols-2 lg:grid-cols-3">
-        {projects.map((p) => (
+      <div>
+        {projects.map((p, i) => (
           <Link
             key={p.slug}
             href={`/work/${p.slug}`}
-            className="block rounded-[10px] border border-border bg-surface p-[22px] transition-shadow hover:shadow-md"
+            className="group grid grid-cols-[44px_1fr_auto] items-center gap-4 border-t border-border px-2 py-[30px] no-underline transition-colors hover:bg-surface md:grid-cols-[80px_1.4fr_1fr_auto] md:gap-6"
           >
-            {p.image ? (
-              <div className="h-[170px] overflow-hidden rounded-md border border-[#E2DACB]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={p.image}
-                  alt={`${p.title} — ${p.thumbLabel}`}
-                  className="h-full w-full object-cover object-top"
-                />
-              </div>
-            ) : (
-              <div className="dc-hatch flex h-[170px] items-center justify-center rounded-md">
-                <span className="font-mono text-[12px] text-muted">
-                  {p.thumbLabel}
-                </span>
-              </div>
-            )}
-            <h3 className="mb-3 mt-5 font-display text-[26px] font-medium">
-              {p.title}
-            </h3>
-            <span className="inline-block rounded-[5px] border border-accent px-[11px] py-1 text-[13px] text-accent">
-              {p.category}
+            <span className="font-mono text-[15px] text-accent">
+              {String(i + 1).padStart(2, "0")}
             </span>
-            <div className="mt-4">
-              <span className="inline-flex items-center gap-2 text-[15px] text-accent">
-                查看專案 <span className="font-display">→</span>
+            <div>
+              <h3 className="m-0 font-display text-[clamp(28px,4vw,52px)] font-semibold tracking-[-0.02em] text-ink">
+                {p.title}
+              </h3>
+              <span className="mt-1 block font-mono text-[12.5px] text-ink-4 md:hidden">
+                {p.category} · {p.thumbLabel}
               </span>
             </div>
+            <span className="hidden font-mono text-[13.5px] tracking-[0.02em] text-ink-4 md:block">
+              {p.category} · {p.thumbLabel}
+            </span>
+            <span className="justify-self-end font-mono text-[20px] text-muted transition-colors group-hover:text-accent">
+              ↗
+            </span>
           </Link>
         ))}
       </div>
+      <div className="border-t border-border" />
     </section>
   );
 }

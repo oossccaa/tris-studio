@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Featured from "@/components/Featured";
 import WorkGrid from "@/components/WorkGrid";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
@@ -12,7 +11,6 @@ export default function HomePage() {
       <Nav />
       <main>
         <Hero />
-        <Featured />
         <WorkGrid />
         <About />
         <Contact />

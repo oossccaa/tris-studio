@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  /* Accent — swap for #8A8F6B, #6E8BA0, or #A08466 to re-theme */
-  --accent: #7b9070;
+  /* Accent — acid green; swap for #FF5C38, #4DE1C1, or #B69CFF to re-theme */
+  --accent: #d8ff47;
 }
 
 @layer base {
@@ -16,10 +16,11 @@
   }
   body {
     @apply bg-bg text-ink font-sans antialiased;
+    overflow-x: hidden;
   }
   ::selection {
     background: var(--accent);
-    color: #fff;
+    color: #0b0b0c;
   }
 }
 
@@ -27,27 +28,18 @@
 .dc-hatch {
   background: repeating-linear-gradient(
     45deg,
-    #e7e0d1,
-    #e7e0d1 10px,
-    #ece6da 10px,
-    #ece6da 20px
+    #141412,
+    #141412 12px,
+    #18180f 12px,
+    #18180f 24px
   );
 }
 .dc-hatch-lg {
   background: repeating-linear-gradient(
     45deg,
-    #e7e0d1,
-    #e7e0d1 12px,
-    #ece6da 12px,
-    #ece6da 24px
-  );
-}
-.dc-hatch-portrait {
-  background: repeating-linear-gradient(
-    45deg,
-    #e9e2d3,
-    #e9e2d3 11px,
-    #efe9dd 11px,
-    #efe9dd 22px
+    #141412,
+    #141412 14px,
+    #18180f 14px,
+    #18180f 28px
   );
 }
