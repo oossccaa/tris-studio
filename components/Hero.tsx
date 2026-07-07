@@ -50,7 +50,7 @@ export default function Hero() {
         <div className="mt-12 flex flex-wrap items-end justify-between gap-7">
           <p className="m-0 max-w-[44ch] text-[18px] leading-[1.55] text-ink-3 sm:text-[20px]">
             管理系統・形象網站・實用工具・電子化菜單——
-            八年工程經驗，從需求訪談到上線維運，一次到位。
+            八年開發經驗，從需求訪談到上線維運，一次到位。
           </p>
           <Link
             href="/#work"

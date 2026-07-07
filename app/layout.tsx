@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Tris Studio — 專業網頁設計與系統開發工作室",
   description:
-    "Tris Studio 專注於管理系統、形象網站、實用工具與電子化菜單。八年工程經驗，從需求訪談到上線維運，一次到位。",
+    "Tris Studio 專注於管理系統、形象網站、實用工具與電子化菜單。八年開發經驗，從需求訪談到上線維運，一次到位。",
   openGraph: {
     title: "Tris Studio",
     description:
