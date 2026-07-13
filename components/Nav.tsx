@@ -2,6 +2,7 @@ import Link from "next/link";
 
 const links = [
   { href: "/#work", label: "/作品" },
+  { href: "/#teaching", label: "/教學" },
   { href: "/#about", label: "/關於" },
 ];
 
