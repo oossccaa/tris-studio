@@ -3,13 +3,26 @@
 import { useState } from "react";
 
 const contacts = [
-  { label: "a0970699639@gmail.com", href: "mailto:a0970699639@gmail.com" },
-  { label: "GitHub / @oossccaa", href: "https://github.com/oossccaa" },
   {
-    label: "LinkedIn / in/yu-hui-xiao",
+    platform: "EMAIL",
+    label: "a0970699639@gmail.com",
+    href: "mailto:a0970699639@gmail.com",
+  },
+  {
+    platform: "GITHUB",
+    label: "程式碼與開源作品",
+    href: "https://github.com/oossccaa",
+  },
+  {
+    platform: "LINKEDIN",
+    label: "工作經歷與背景",
     href: "https://www.linkedin.com/in/yu-hui-xiao-b52627188/",
   },
-  { label: "LINE / oossccaa", href: "https://line.me/ti/p/~oossccaa" },
+  {
+    platform: "LINE",
+    label: "加好友直接聊",
+    href: "https://line.me/ti/p/~oossccaa",
+  },
 ];
 
 const inputClass =
@@ -164,11 +177,16 @@ export default function Contact() {
                 <a
                   key={c.label}
                   href={c.href}
-                  className={`flex items-center justify-between border-t border-border py-[18px] text-[16.5px] text-ink-2 no-underline transition-colors hover:text-accent ${
+                  className={`flex items-center justify-between gap-4 border-t border-border py-[18px] text-[16.5px] text-ink-2 no-underline transition-colors hover:text-accent ${
                     i === contacts.length - 1 ? "border-b" : ""
                   }`}
                 >
-                  {c.label}
+                  <span className="flex items-baseline gap-3">
+                    <span className="w-[86px] shrink-0 font-mono text-[11px] tracking-[0.08em] text-muted">
+                      {c.platform}
+                    </span>
+                    {c.label}
+                  </span>
                   <span className="font-mono text-muted">↗</span>
                 </a>
               ))}
