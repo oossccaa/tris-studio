@@ -5,7 +5,7 @@ const reasons = [
     body: (
       <>
         全面導入 AI 輔助開發（vibe coding），效率數倍於傳統流程——專案報價常態只要
-        <span className="font-bold text-accent">行情的 1/5</span>
+        <span className="font-bold text-accent">行情的 1/3</span>
         。同樣的預算，做出更多。
       </>
     ),
