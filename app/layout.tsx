@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://tris-studio.vercel.app"),
   title: "Tris Studio — 雲林網頁設計、系統開發與 AI 教學工作室",
   description:
     "Tris Studio 是雲林在地的網頁設計與系統開發工作室，服務斗六、虎尾、斗南等地區（遠端亦可）。專注於管理系統、形象網站、實用工具與電子化菜單，並提供在地 AI 教學（vibe coding）。八年開發經驗，從需求訪談到上線維運，一次到位。",
@@ -24,6 +25,11 @@ export const metadata: Metadata = {
     description:
       "雲林在地（斗六・虎尾・斗南）網頁設計與系統開發工作室——管理系統、形象網站、實用工具、電子化菜單，以及 vibe coding AI 教學。",
     type: "website",
+    images: [{ url: "/og.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og.png"],
   },
 };
 
